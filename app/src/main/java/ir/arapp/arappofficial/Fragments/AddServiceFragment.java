@@ -30,11 +30,13 @@ public class AddServiceFragment extends Fragment implements View.OnClickListener
 {
     //Variables
     private AppCompatSpinner categorySpinner;
+    private AppCompatSpinner buildDateSpinner;
     private Typeface typeface;
     private CircularProgressButton timeActivity;
 
     //Spinner List
     private List<String> categoryList;
+    private List<String> buildDateList;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState)
@@ -52,9 +54,11 @@ public class AddServiceFragment extends Fragment implements View.OnClickListener
         //Hooks
         categorySpinner = view.findViewById(R.id.categorySpinner);
         timeActivity = view.findViewById(R.id.buttonSubmitTimeActivity);
+        buildDateSpinner = view.findViewById(R.id.buildDateSpinner);
 
         //Spinner List defining
         categoryList = new ArrayList<>();
+        buildDateList = new ArrayList<>();
         //Spinner Adapter
         spinnerAdapter();
 
@@ -67,6 +71,7 @@ public class AddServiceFragment extends Fragment implements View.OnClickListener
     private void spinnerAdapter()
     {
         categoryList.addAll(Arrays.asList(getResources().getStringArray(R.array.category_list)));
+        buildDateList.addAll(Arrays.asList(getResources().getStringArray(R.array.year_list)));
 
         ArrayAdapter<String> arrayAdapter = new
                 ArrayAdapter<String>(Objects.requireNonNull(getActivity()).getApplicationContext(), R.layout.custom_spinner_layout, categoryList)
@@ -95,6 +100,34 @@ public class AddServiceFragment extends Fragment implements View.OnClickListener
         arrayAdapter.setDropDownViewResource(R.layout.custom_spinner_layout_dropdown);
 
         categorySpinner.setAdapter(arrayAdapter);
+
+        ArrayAdapter<String> arrayAdapter1 = new
+                ArrayAdapter<String>(Objects.requireNonNull(getActivity()).getApplicationContext(), R.layout.custom_spinner_layout, buildDateList)
+                {
+                    @NonNull
+                    @Override
+                    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
+                    {
+                        View view = super.getView(position, convertView, parent);
+
+                        ((TextView) view).setTypeface(typeface);
+
+                        return  view;
+                    }
+
+                    @Override
+                    public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
+                    {
+                        View view = super.getDropDownView(position, convertView, parent);
+
+                        ((TextView) view).setTypeface(typeface);
+
+                        return  view;
+                    }
+                };
+        arrayAdapter.setDropDownViewResource(R.layout.custom_spinner_layout_dropdown);
+
+        buildDateSpinner.setAdapter(arrayAdapter1);
     }
 
     //Time Picker

@@ -82,5 +82,10 @@ public class ProfileActivity extends AppCompatActivity
             toolbarTitle.setText(getResources().getString(R.string.add_service));
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_profile_container, new AddServiceFragment()).commit();
         }
+        else if (Objects.requireNonNull(fragment).equals("myService"))
+        {
+            toolbarTitle.setText(getResources().getString(R.string.my_service));
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_profile_container, new AddServiceFragment()).commit();
+        }
     }
 }
