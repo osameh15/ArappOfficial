@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ec="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:clipChildren="false"
+    android:background="@color/colorAccent">
+
+    <RelativeLayout
+        android:id="@+id/offRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-20dp">
+
+        <RelativeLayout
+            android:id="@+id/titleSpecialRelativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_marginTop="30dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_toEndOf="@id/offFrameLayout">
+
+                <TextView
+                    android:id="@+id/titleSpecialService"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:text="@string/offers"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/vazir_bold"
+                    android:textColor="@color/text1"
+                    android:layout_marginEnd="20dp"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/offFrameLayout"
+                android:layout_width="85dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:background="@drawable/special_off">
+
+                <TextView
+                    android:id="@+id/text_reduction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/off_special"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/vazir_bold"
+                    android:textColor="@color/text1"/>
+
+            </FrameLayout>
+
+        </RelativeLayout>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/titleSpecialRelativeLayout"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_fileName="special.json"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPagerSpecialService"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:foregroundGravity="center"
+            android:layout_centerInParent="true"
+            android:clipToPadding="false"
+            android:overScrollMode="never"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

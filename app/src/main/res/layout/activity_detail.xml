@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.DetailActivity"
+    android:fitsSystemWindows="true"
+    android:background="@color/colorAccent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarDetail"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbarDetail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:titleEnabled="false"
+            app:contentScrim="@color/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/detailImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:riv_corner_radius="0dp"
+                app:riv_border_width="1dp"
+                app:riv_border_color="@color/colorAccentDark"
+                app:riv_mutate_background="false"
+                app:riv_tile_mode="clamp"
+                app:riv_oval="false"
+                app:layout_collapseMode="parallax"
+                android:src="@drawable/cafe"/>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/detailToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layoutDirection="rtl"
+                android:contentInsetStart="0dp"
+                android:contentInsetLeft="0dp"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                android:theme="@style/Theme.MyFancyTheme"
+                app:popupTheme="@drawable/toolbar_shape"
+                app:layout_scrollFlags="scroll|enterAlways|snap"
+                app:layout_collapseMode="pin">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/serviceToolbarName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text1"
+                        android:text="@string/title_service"
+                        android:textSize="18sp"
+                        android:layout_marginEnd="3dp"
+                        android:fontFamily="@font/vazir_medium"
+                        android:layout_toStartOf="@id/favoriteDetail"/>
+
+                    <ImageView
+                        android:id="@+id/moreDetail"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_baseline_more_vert_24"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="5dp"
+                        android:contentDescription="@string/app_name" />
+
+                    <ImageView
+                        android:id="@+id/shareDetail"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="2dp"
+                        android:src="@drawable/ic_baseline_share_24"
+                        android:layoutDirection="locale"
+                        android:layout_toStartOf="@id/moreDetail"
+                        android:contentDescription="@string/app_name" />
+
+                    <ImageView
+                        android:id="@+id/favoriteDetail"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/ic_baseline_favorite_24"
+                        android:layout_toStartOf="@id/shareDetail"
+                        android:contentDescription="@string/app_name" />
+
+                </RelativeLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="2dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/activityServiceDetail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/open_service"
+                        android:text="@string/open_service"
+                        android:textSize="15sp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/vazir_bold"
+                        android:layout_toStartOf="@id/clockImage"
+                        android:layout_centerVertical="true"/>
+
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/clockImage"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="5dp"
+                        app:lottie_loop="true"
+                        app:lottie_autoPlay="true"
+                        app:lottie_fileName="clock.json"/>
+
+                    <ImageView
+                        android:id="@+id/helpServiceDetail"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_baseline_help_24"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="3dp"
+                        android:layout_toStartOf="@id/activityServiceDetail"
+                        android:contentDescription="@string/app_name"
+                        android:onClick="helpActivity"/>
+
+                    <View
+                        android:id="@+id/divider1"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/service_shape" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:layout_marginTop="12dp"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="2dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/mapServiceDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text6"
+                        android:text="@string/locate"
+                        android:textSize="14sp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/vazir_bold"
+                        android:layout_toStartOf="@id/locateImage"/>
+
+                    <ImageView
+                        android:id="@+id/locateImage"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_outline_location_onc_24"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="5dp"
+                        android:contentDescription="@string/app_name" />
+
+                    <fragment
+                        android:id="@+id/mapDetail"
+                        android:name="com.google.android.gms.maps.SupportMapFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_below="@id/locateImage"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginBottom="5dp"/>
+
+                    <TextView
+                        android:id="@+id/categoryServiceDetail_one"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text6"
+                        android:text="@string/category_detail"
+                        android:textSize="12sp"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/vazir_bold"
+                        android:layout_below="@id/mapDetail"
+                        android:layout_toStartOf="@id/subTitleImage"
+                        android:gravity="start"/>
+
+                    <TextView
+                        android:id="@+id/categoryServiceDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text5"
+                        android:text=""
+                        android:textSize="12sp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/vazir_bold"
+                        android:layout_below="@id/mapDetail"
+                        android:layout_toStartOf="@id/categoryServiceDetail_one"/>
+
+                    <ImageView
+                        android:id="@+id/categoryImage"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_local_offer_black_24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:contentDescription="@string/app_name"
+                        android:layout_below="@id/mapDetail"/>
+
+                    <TextView
+                        android:id="@+id/subtitleServiceDetail_one"
+                        android:layout_width="105dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text6"
+                        android:text="@string/subtitle_service_detail"
+                        android:textSize="12sp"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/vazir_bold"
+                        android:layout_below="@id/categoryServiceDetail"
+                        android:layout_toStartOf="@id/subTitleImage"
+                        android:gravity="start"/>
+
+                    <TextView
+                        android:id="@+id/subtitleServiceDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text5"
+                        android:text=""
+                        android:textSize="12sp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/vazir_bold"
+                        android:layout_below="@id/categoryServiceDetail"
+                        android:layout_toStartOf="@id/subtitleServiceDetail_one"/>
+
+                    <ImageView
+                        android:id="@+id/subTitleImage"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_baseline_beenhere_24"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:contentDescription="@string/app_name"
+                        android:layout_below="@id/categoryImage"/>
+
+                    <TextView
+                        android:id="@+id/nameServiceDetail_one"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text6"
+                        android:text="@string/service_provider_service_detail"
+                        android:textSize="12sp"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/vazir_bold"
+                        android:layout_below="@id/subTitleImage"
+                        android:layout_toStartOf="@id/nameImage"
+                        android:gravity="start"/>
+
+                    <TextView
+                        android:id="@+id/nameServiceDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text5"
+                        android:text=""
+                        android:textSize="12sp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/vazir_bold"
+                        android:layout_below="@id/subTitleImage"
+                        android:layout_toStartOf="@id/nameServiceDetail_one"/>
+
+                    <ImageView
+                        android:id="@+id/nameImage"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/profile_icon"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:contentDescription="@string/app_name"
+                        android:layout_below="@id/subTitleImage"/>
+
+                    <TextView
+                        android:id="@+id/phoneServiceDetail_one"
+                        android:layout_width="73dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text6"
+                        android:text="@string/call_phone"
+                        android:textSize="12sp"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/vazir_bold"
+                        android:layout_below="@id/nameServiceDetail"
+                        android:layout_toStartOf="@id/addressImage"
+                        android:gravity="start"/>
+
+                    <TextView
+                        android:id="@+id/phoneServiceDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text5"
+                        android:text=""
+                        android:textSize="12sp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/vazir_bold"
+                        android:layout_below="@id/nameServiceDetail"
+                        android:layout_toStartOf="@id/phoneServiceDetail_one"
+                        android:gravity="end"/>
+
+                    <ImageView
+                        android:id="@+id/phoneImage"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_baseline_call_24"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:contentDescription="@string/app_name"
+                        android:layout_below="@id/nameImage"/>
+
+                    <TextView
+                        android:id="@+id/provinceServiceDetail_one"
+                        android:layout_width="34dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text6"
+                        android:text="@string/province_detail"
+                        android:textSize="12sp"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/vazir_bold"
+                        android:layout_below="@id/phoneServiceDetail"
+                        android:layout_toStartOf="@id/addressImage"
+                        android:gravity="start"/>
+
+                    <TextView
+                        android:id="@+id/provinceServiceDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text5"
+                        android:text=""
+                        android:textSize="12sp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/vazir_bold"
+                        android:layout_below="@id/phoneServiceDetail"
+                        android:layout_toStartOf="@id/provinceServiceDetail_one"/>
+
+                    <ImageView
+                        android:id="@+id/provinceImage"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_public_black_24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:contentDescription="@string/app_name"
+                        android:layout_below="@id/phoneImage"/>
+
+                    <TextView
+                        android:id="@+id/addressServiceDetail_one"
+                        android:layout_width="32dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text6"
+                        android:text="@string/address_service_detail"
+                        android:textSize="12sp"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/vazir_bold"
+                        android:layout_below="@id/provinceServiceDetail"
+                        android:layout_toStartOf="@id/addressImage"
+                        android:gravity="start"/>
+
+                    <TextView
+                        android:id="@+id/addressServiceDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text5"
+                        android:text=""
+                        android:textSize="12sp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/vazir_bold"
+                        android:layout_below="@id/provinceServiceDetail"
+                        android:layout_toStartOf="@id/addressServiceDetail_one"/>
+
+                    <ImageView
+                        android:id="@+id/addressImage"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_outline_location_onc_24"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:contentDescription="@string/app_name"
+                        android:layout_below="@id/provinceImage"/>
+
+                    <TextView
+                    android:id="@+id/timeServiceDetail_one"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text6"
+                    android:text="@string/time_create_service"
+                    android:textSize="12sp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:fontFamily="@font/vazir_bold"
+                    android:layout_below="@id/addressServiceDetail"
+                    android:layout_toStartOf="@id/timeImage"/>
+
+                    <TextView
+                        android:id="@+id/timeServiceDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text5"
+                        android:text=""
+                        android:textSize="12sp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/vazir_bold"
+                        android:layout_below="@id/addressServiceDetail"
+                        android:layout_toStartOf="@id/timeServiceDetail_one"/>
+
+                    <ImageView
+                        android:id="@+id/timeImage"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_baseline_timelapse_24"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:contentDescription="@string/app_name"
+                        android:layout_below="@id/addressImage"/>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:layout_marginTop="12dp"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="6dp">
+
+                    <TextView
+                        android:id="@+id/textServiceDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text6"
+                        android:text="@string/update"
+                        android:textSize="12sp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="3dp"
+                        android:fontFamily="@font/vazir"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="70dp"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_marginTop="6dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text6"
+                            android:text="@string/user_comments"
+                            android:textSize="14sp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginTop="3dp"
+                            android:fontFamily="@font/vazir_bold"
+                            tools:ignore="RelativeOverlap"
+                            android:layout_toStartOf="@id/commentImage"/>
+
+                        <ImageView
+                            android:id="@+id/commentImage"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_baseline_people_24"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginTop="5dp"
+                            android:contentDescription="@string/app_name" />
+
+                        <TextView
+                            android:id="@+id/commentTotalDetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text4"
+                            android:text="@string/user_comment_num"
+                            android:textSize="14sp"
+                            android:layout_marginStart="18dp"
+                            android:layout_marginTop="3dp"
+                            android:fontFamily="@font/vazir_bold"
+                            android:layout_alignParentStart="true"/>
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/emptyCommentDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/splitComplementary2"
+                        android:text="@string/empty_comment"
+                        android:textSize="14sp"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginEnd="6dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/vazir_bold"
+                        android:textAlignment="center"
+                        android:visibility="visible"/>
+                    
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/commentRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:layout_marginBottom="10dp"
+                        android:visibility="gone"/>
+                    
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <FrameLayout
+        android:id="@+id/rateDetail"
+        android:layout_width="110dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="5dp"
+        app:layout_anchor="@id/appbarDetail"
+        app:behavior_autoHide="true"
+        android:adjustViewBounds="true"
+        android:clickable="false"
+        android:background="@drawable/rate_max_shape"
+        app:layout_anchorGravity="left|end|bottom">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/rateServiceItem"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/rate_service"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="4dp"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:fontFamily="@font/vazir_bold"
+                android:textColor="@color/text1"/>
+
+            <TextView
+                android:id="@+id/rateAllServiceItem"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/rate_all_service"
+                android:textSize="11sp"
+                android:gravity="center"
+                android:fontFamily="@font/vazir_bold"
+                android:textColor="@color/text1"
+                tools:ignore="SmallSp" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/bottomFloat"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="10dp"
+        android:clickable="true"
+        android:background="@drawable/transition_background"
+        android:layout_gravity="bottom|center_horizontal"
+        android:focusable="true">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="start"
+            android:src="@drawable/ic_call"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="4dp"
+            android:contentDescription="@string/app_name"
+            android:onClick="callService"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text1"
+            android:text="@string/call_detail"
+            android:textSize="12sp"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="14dp"
+            android:layout_marginBottom="2dp"
+            android:fontFamily="@font/vazir_medium"
+            android:onClick="callService"/>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_star"
+            android:layout_marginTop="4dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/app_name"
+            android:onClick="rateService"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text1"
+            android:text="@string/submit_rate"
+            android:textSize="12sp"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="2dp"
+            android:fontFamily="@font/vazir_medium"
+            android:onClick="rateService"/>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_baseline_mode_comment_24"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="4dp"
+            android:contentDescription="@string/app_name"
+            android:onClick="commentService"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text1"
+            android:text="@string/submit_comment"
+            android:textSize="12sp"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="2dp"
+            android:layout_marginEnd="22dp"
+            android:fontFamily="@font/vazir_medium"
+            android:onClick="commentService"/>
+
+    </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

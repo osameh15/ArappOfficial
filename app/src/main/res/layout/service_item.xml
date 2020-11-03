@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:id="@+id/cardViewServiceItem"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="6dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layoutDirection="rtl">
+
+        <RelativeLayout
+            android:layout_width="105dp"
+            android:layout_height="wrap_content">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/serviceItemImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:riv_corner_radius="4dp"
+                app:riv_border_width="0dp"
+                app:riv_mutate_background="false"
+                app:riv_tile_mode="clamp"
+                app:riv_oval="false"
+                android:src="@drawable/cafe"/>
+
+            <ProgressBar
+                android:id="@+id/progressBarImageItemService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@android:style/Widget.Material.Light.ProgressBar.Inverse"
+                android:layout_centerInParent="true"/>
+
+            <FrameLayout
+                android:id="@+id/rateServiceItemFrameLayout"
+                android:layout_width="40dp"
+                android:layout_height="25dp"
+                android:background="@drawable/rate_max_shape"
+                android:layout_alignParentBottom="true">
+
+                <TextView
+                    android:id="@+id/rateServiceItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rate_number"
+                    android:textSize="14sp"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:fontFamily="@font/vazir_bold"
+                    android:textColor="@color/text1"/>
+
+            </FrameLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/timeServiceItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/time_service"
+                android:textSize="12sp"
+                android:layout_marginEnd="5dp"
+                android:fontFamily="@font/vazir"
+                android:textColor="@color/disable"
+                android:layout_alignParentEnd="true"
+                tools:ignore="RelativeOverlap" />
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_outline_access_time_24"
+                android:contentDescription="@string/app_name"
+                android:layout_toStartOf="@id/timeServiceItem"
+                android:layout_marginEnd="5dp"/>
+
+            <TextView
+                android:id="@+id/titleServiceItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title_services"
+                android:textSize="14sp"
+                android:fontFamily="@font/vazir_bold"
+                android:textColor="@color/text6"
+                android:layout_marginStart="3dp"
+                android:layout_below="@id/timeServiceItem"/>
+
+            <ImageView
+                android:id="@+id/imageItemTwo"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_outline_location_onc_24"
+                android:contentDescription="@string/app_name"
+                android:layout_below="@id/titleServiceItem"/>
+
+            <TextView
+                android:id="@+id/locateServiceItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/locate"
+                android:textSize="12sp"
+                android:fontFamily="@font/vazir"
+                android:textColor="@color/text5"
+                android:layout_below="@id/titleServiceItem"
+                android:layout_toEndOf="@id/imageItemTwo"/>
+
+            <TextView
+                android:id="@+id/distanceServiceItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/distance"
+                android:textSize="12sp"
+                android:fontFamily="@font/vazir"
+                android:textColor="@color/splitComplementary2"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="-4dp"
+                tools:ignore="RelativeOverlap" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

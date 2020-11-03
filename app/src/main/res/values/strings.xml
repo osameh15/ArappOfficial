@@ -1,0 +1,218 @@
+<resources>
+    <!-- App_ name -->
+    <string name="app_name">Arapp</string>
+    <string name="app_name_farC">آراپ</string>
+
+    <!-- Splash Activity -->
+    <string name="try_again">تلاش مجدد</string>
+    <string name="try_again_text">لطفا از اتصال دستگاه خود به اینترنت مطمئن شوید</string>
+
+    <!-- recently changes text(updated anytime) -->
+    <string name="update">تغییرات نسخه 0.9.3: \n1- طراحی و بازسازی صفحه اول برنامه \n2- گیمیفیکیشن کردن برنامه \n3- افزودن موارد بیشتر به سرویس ها و کامنت های کاربران \n4- بازسازی صفحات اعلانات، سرویس های ویژه و آداپتورها \n5- جداکردن پروفایل کاربری سرویس دهنده و سرویس گیرنده \n6- رفع برخی مشکلات گزارش شده \n ------------------------------ \n تغییرات نسخه 0.9.0: \n\n1- طراحی صفحه سرویس های ویژه \n2- بروزرسانی صفحه افزودن سرویس \n3- طراحی سرویس ها \n4- محبوب ترین سرویس ها + جدیدترین سرویس ها \n5- طراحی اولیه جستجو(فاقد کدنویسی بک) \n6- بازسازی صفحه اعلانات و صفحه اصلی \n7- طراحی متریال و انیمیشن برای لودینگ صفحه اصلی(صفحه را به پایین بکشید) \n8- نمایش نوار پیشرفت بعد از تغییر پروفایل \n9- افزودن گزینه من را به خاطر بسپار در ورود \n10- طراحی صفحه جزئیات \n11- طراحی بخش نظرات کاربران \n12- طراحی ثبت نظر به صورت متریال \n13- بازسازی دیزاین و صفحات اپ \n14- اتصال سرویس ها به صفحه جزئیات \n15- رونمایی از طرح جدید سرویس هاس ویژه \n16- اعلام وضعیت باز بودن یا بسته بودن سرویس ها \n17- تغییر پوسته امتیاز بسته به جایگاه امتیاز \n18- آماده سازی نسخه دمو و تست اپلیکیشن \n19- رفع برخی مشکلات گزارش شده</string>
+    <string name="version">آلفا 0.9.3</string>
+
+    <!-- login/SignUp -->
+    <string name="sign_up">عضویت</string>
+    <string name="login_arapp">ورود به آراپ</string>
+    <string name="register_toolbar">ایجاد حساب کاربری</string>
+    <string name="input_phone_number_text">برای عضویت شماره موبایل خود را وارد نمایید</string>
+    <string name="phone_number">شماره موبایل</string>
+    <string name="submit">تایید</string>
+    <string name="login_pass">رمز عبور</string>
+    <string name="forgetten_password">رمز عبور خود را فراموش کرده اید؟</string>
+    <string name="login">ورود</string>
+    <string name="register_in_login">هنوز در آراپ عضویت ندارید؟</string>
+    <string name="validation_code_text">کد تایید 6 رقمی به شماره واردشده ارسال شد</string>
+    <string name="edit_phone_number">اصلاح شماره موبایل</string>
+    <string name="code_hint">000000</string>
+    <string name="forgetten_password_toolbar">بازیابی رمز عبور</string>
+    <string name="remember_me">من را به خاطر بسپار</string>
+    <string name="forgetten_password_text">برای بازیابی شماره موبایل خود را وارد نمایید</string>
+    <string name="forget_password_change">رمز جدید خود را وارد نمایید</string>
+    <string name="confirm">ثبت</string>
+    <string name="confirm_pass">تکرار رمز عبور</string>
+    <string name="register_text">مشخصات خود را وارد نمایید</string>
+    <string name="name">نام و نام خانوادگی</string>
+    <string name="email">آدرس ایمیل</string>
+    <string name="service_location">نوع سرویس:</string>
+    <string name="set_service">سرویس دهنده</string>
+    <string name="get_service">سرویس گیرنده</string>
+    <string name="login_text">آیا در آراپ عضویت دارید؟</string>
+    <string name="verify_code">کد تایید را وارد نمایید</string>
+    <string name="timer">00:00</string>
+    <string name="send_verify_code">ارسال مجدد کد فعالسازی</string>
+
+    <!-- Home Activity -->
+    <string name="search">جستجو در آراپ</string>
+    <string name="likes">محبوب ترین ها</string>
+    <string name="new_services">جدیدترین ها</string>
+
+    <!-- Main menu -->
+    <string name="favorites">علاقه مندی ها</string>
+    <string name="receive_notification">دریافت اعلان</string>
+    <string name="recent_updates">تغییرات اخیر</string>
+    <string name="invite_friends">پیشنهاد به دوستان</string>
+    <string name="rating">نظردهی</string>
+    <string name="about_us">درباره آراپ</string>
+    <string name="contact_us">ارتباط با ما و گزارش مشکلات</string>
+    <string name="question">سؤالات متداول</string>
+    <string name="restaurant">رستوران</string>
+    <string name="fast_food">فست فود</string>
+    <string name="cafe">کافه</string>
+    <string name="hotel">هتل</string>
+    <string name="rest_room">مسافرخانه</string>
+    <string name="shop_center">مراکز خرید</string>
+
+    <!-- Bottom menu -->
+    <string name="categories">دسته بندی</string>
+    <string name="profile">پروفایل</string>
+    <string name="home">صفحه اصلی</string>
+    <string name="notification">اعلانات</string>
+    <string name="offers">سرویس های ویژه</string>
+
+    <!-- Profile Fragment -->
+    <string name="edit_profile">ویرایش اطلاعات کاربری</string>
+    <string name="my_service">سرویس های من</string>
+    <string name="user_comment">مشاهده نظرات کاربران</string>
+    <string name="service_rating">مشاهده امتیازات داده شده</string>
+    <string name="search_history">پاک کردن تاریخچه جستجو</string>
+    <string name="booking">رزرو سرویس</string>
+    <string name="add_service">افزودن سرویس</string>
+    <string name="logout">خروج از حساب کاربری</string>
+    <string name="arapp_info">آراپ، نسخه 0.9.3</string>
+    <string name="profile_toolbar">صفحه کاربر</string>
+    <string name="loading">لطفا کمی صبر کنید</string>
+
+    <!-- User Profile Fragment -->
+    <string name="change_pass_text">می توانید در این قسمت رمزعبور خود را تغییر دهید</string>
+    <string name="submit_information">ثبت مشخصات</string>
+    <string name="change_pass">تغییر رمزعبور</string>
+    <string name="updated_profile">آخرین بروزرسانی در تاریخ:</string>
+    <string name="bio">درباره من</string>
+    <string name="education">تحصیلات</string>
+    <string name="province">استان</string>
+    <string name="city">شهرستان</string>
+
+    <!-- Add Service Fragment -->
+    <string name="title_service">عنوان سرویس</string>
+    <string name="subtitle_service">مختصری از سرویس</string>
+    <string name="text_service">توضیحات کامل از سرویس</string>
+    <string name="address">نشانی</string>
+    <string name="time_activity">زمان شروع و پایان فعالیت</string>
+    <string name="set_timer">تنظیم زمان</string>
+
+    <!-- Pop Up Text View -->
+    <string name="contact_us_text">جهت ارتباط با آراپ میتوانید از طریق شماره و یا ایمیل زیر تماس حاصل فرمایید \nهمچنین جهت ارسال مشکلات احتمالی با ایمیل آراپ در ارتباط باشید</string>
+    <string name="call">تماس تلفنی با آراپ</string>
+    <string name="mail">ایمیل به آراپ</string>
+    <string name="about_text">آراپ انتخاب همه سلیقه ها</string>
+    <string name="activity_text">همه روزه؛ 08:00 تا 21:23</string>
+    <string name="close">بستن</string>
+    <string name="rate_consent">از عملکرد این سرویس چقدر رضایت داشتید؟</string>
+    <string name="rate_point">امتیاز خود را ثبت کنید</string>
+    <string name="your_rate">امتیاز شما: 0.0</string>
+    <string name="comment_here">نظر خود را اینجا بنویسید</string>
+    <string name="comment_submit">نظر خود را ثبت کنید</string>
+    <string name="comment_consent">عملکرد این سرویس را چگونه ارزیابی می کنید؟</string>
+    <string name="confirm_comment">نظر شما بعد از تایید مدیریت، ثبت خواهد شد</string>
+
+    <!-- Recycler View -->
+    <string name="number_test">0</string>
+    <string name="more">بیشتر</string>
+    <string name="all_user_comment">مشاهده تمامی نظرات</string>
+    <string name="locate">موقعیت مکانی</string>
+    <string name="distance">فاصله</string>
+    <string name="title_services">سرویس من</string>
+    <string name="time_service">زمان</string>
+    <string name="all_comment">کل نظرات</string>
+    <string name="rate_number">5.0</string>
+    <string name="rate_service">4.9</string>
+    <string name="rate_all_service">(از 23 رأی)</string>
+    <string name="off_special">20%</string>
+
+    <!-- Profile List -->
+    <!-- Education Spinner List -->
+    <string-array name="education_list">
+        <item>تحصیلات خود را انتخاب نمایید</item>
+        <item>دیپلم و فوق دیپلم</item>
+        <item>کارشناسی</item>
+        <item>کارشناسی ارشد</item>
+        <item>دکتری و بالاتر</item>
+    </string-array>
+
+    <!-- Province Spinner List -->
+    <string-array name="province_list">
+        <item>انتخاب استان</item>
+        <item>تهران</item>
+        <item>گیلان</item>
+    </string-array>
+
+    <!-- City Spinner List -->
+    <string-array name="city_list_tehran">
+        <item>انتخاب شهرستان</item>
+        <item>تهران</item>
+        <item>شهریار</item>
+        <item>اسلامشهر</item>
+        <item>بهارستان</item>
+        <item>ملارد</item>
+        <item>پاکدشت</item>
+        <item>ری</item>
+        <item>قدس</item>
+        <item>رباط کریم</item>
+        <item>ورامین</item>
+        <item>قرچک</item>
+        <item>پردیس</item>
+        <item>دماوند</item>
+        <item>فیروزکوه</item>
+    </string-array>
+    <string-array name="city_list_gilan">
+        <item>انتخاب شهرستان</item>
+        <item>رشت</item>
+        <item>تالش</item>
+        <item>لاهیجان</item>
+        <item>رودسر</item>
+        <item>لنگرود</item>
+        <item>بندرانزلی</item>
+        <item>صومعه سرا</item>
+        <item>آستانه اشرفیه</item>
+        <item>رودبار</item>
+        <item>فومن</item>
+        <item>آستارا</item>
+        <item>رضوانشهر</item>
+        <item>شفت</item>
+        <item>ماسال</item>
+        <item>سیاهکل</item>
+        <item>املش</item>
+    </string-array>
+
+    <!-- Category Spinner List -->
+    <string-array name="category_list">
+        <item>دسته بندی سرویس را انتخاب نمایید</item>
+        <item>رستوران</item>
+        <item>فست فود</item>
+        <item>کافه</item>
+        <item>هتل</item>
+        <item>مسافرخانه</item>
+        <item>مراکز خرید</item>
+    </string-array>
+
+    <!-- Detail activity -->
+    <string name="call_detail">تماس تلفنی</string>
+    <string name="call_phone">شماره تماس: </string>
+    <string name="submit_rate">ثبت رأی</string>
+    <string name="submit_comment">ثبت نظر</string>
+    <string name="open_service">هم اکنون باز است</string>
+    <string name="close_service">هم اکنون بسته است</string>
+    <string name="open_service_soon">به زودی باز می شود</string>
+    <string name="close_service_soon">به زودی بسته می شود</string>
+    <string name="subtitle_service_detail">مختصری از سرویس: </string>
+    <string name="service_provider_service_detail">سرویس دهنده: </string>
+    <string name="address_service_detail">نشانی: </string>
+    <string name="user_comments">نظرات کاربران</string>
+    <string name="user_comment_num">0 نظر</string>
+    <string name="empty_comment">هنوز نظری برای این سرویس ثبت نشده است!</string>
+    <string name="time_create_service">زمان ایجاد سرویس: </string>
+    <string name="category_detail">دسته بندی: </string>
+    <string name="province_detail">استان:</string>
+
+</resources>

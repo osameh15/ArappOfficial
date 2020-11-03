@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center_vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/specialCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        android:layout_margin="8dp"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/specialImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                app:riv_corner_radius="4dp"
+                app:riv_border_width="0dp"
+                app:riv_border_color="@color/colorAccentDark"
+                app:riv_mutate_background="false"
+                app:riv_tile_mode="clamp"
+                app:riv_oval="false"
+                android:src="@drawable/arapp_news"/>
+
+            <LinearLayout
+                android:id="@+id/specialLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/specialImage"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="3dp"
+                android:gravity="end"
+                tools:ignore="UseCompoundDrawables">
+
+                <TextView
+                    android:id="@+id/specialServiceTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text6"
+                    android:text="@string/title_service"
+                    android:textSize="14sp"
+                    android:layout_marginEnd="6dp"
+                    android:fontFamily="@font/vazir_bold"/>
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_baseline_beenhere_24"
+                    android:contentDescription="@string/app_name"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/specialLinearLayoutOne"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/specialLinearLayout"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="3dp"
+                android:gravity="end">
+
+                <TextView
+                    android:id="@+id/specialServiceName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text6"
+                    android:text="@string/name"
+                    android:textSize="13sp"
+                    android:layout_marginEnd="6dp"
+                    android:fontFamily="@font/vazir_medium"/>
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/profile_icon"
+                    android:contentDescription="@string/app_name"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/specialLinearLayoutTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/specialLinearLayoutOne"
+                android:layout_marginTop="3dp"
+                android:layout_alignParentStart="true">
+
+                <TextView
+                    android:id="@+id/specialServiceTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/disable"
+                    android:text="@string/time_service"
+                    android:textSize="14sp"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="6dp"
+                    android:fontFamily="@font/vazir_medium"/>
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_outline_access_time_24"
+                    android:contentDescription="@string/app_name"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/specialLinearLayoutThree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/specialLinearLayoutOne"
+                android:layout_marginTop="3dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="6dp">
+
+                <TextView
+                    android:id="@+id/specialServiceComment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/disable"
+                    android:text="@string/all_comment"
+                    android:textSize="14sp"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="6dp"
+                    android:fontFamily="@font/vazir_medium"/>
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_baseline_chat_bubble_outline_24"
+                    android:contentDescription="@string/app_name"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="-20dp"
+            android:layout_marginEnd="-8dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_fileName="ribbon.json"
+            android:layout_gravity="end"/>
+
+        <FrameLayout
+            android:id="@+id/rateSpecialFrameLayout"
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:background="@drawable/rate_max_shape"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="90dp"
+            android:layout_gravity="bottom">
+
+            <TextView
+                android:id="@+id/rateSpecial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rate_number"
+                android:textSize="14sp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:fontFamily="@font/vazir_bold"
+                android:textColor="@color/text1"/>
+
+        </FrameLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
