@@ -17,6 +17,7 @@ import java.util.Objects;
 
 import ir.arapp.arappofficial.Fragments.AddServiceFragment;
 import ir.arapp.arappofficial.Fragments.HomeFragment;
+import ir.arapp.arappofficial.Fragments.MyServiceFragment;
 import ir.arapp.arappofficial.Fragments.UserProfileFragment;
 import ir.arapp.arappofficial.R;
 
@@ -85,7 +86,7 @@ public class ProfileActivity extends AppCompatActivity
         else if (Objects.requireNonNull(fragment).equals("myService"))
         {
             toolbarTitle.setText(getResources().getString(R.string.my_service));
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_profile_container, new AddServiceFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_profile_container, new MyServiceFragment()).commit();
         }
     }
 }

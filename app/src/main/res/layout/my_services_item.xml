@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardViewMyService"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="210dp"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="8dp"
+    android:layout_margin="8dp"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/myServiceImage"
+                android:layout_width="200dp"
+                android:layout_height="140dp"
+                android:scaleType="centerCrop"
+                app:riv_corner_radius="5dp"
+                app:riv_border_width="0dp"
+                app:riv_mutate_background="false"
+                app:riv_tile_mode="clamp"
+                app:riv_oval="false"
+                android:src="@drawable/hotels"/>
+
+            <ProgressBar
+                android:id="@+id/progressBarImageMyService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@android:style/Widget.Material.Light.ProgressBar.Inverse"
+                android:layout_centerInParent="true"/>
+
+            <FrameLayout
+                android:id="@+id/rateMyServiceFrameLayout"
+                android:layout_width="40dp"
+                android:layout_height="25dp"
+                android:layout_below="@id/myServiceImage"
+                android:background="@drawable/rate_max_shape"
+                android:layout_marginTop="-18dp"
+                android:layout_marginStart="10dp">
+
+                <TextView
+                    android:id="@+id/rateMyService"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rate_number"
+                    android:textSize="14sp"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:fontFamily="@font/vazir_bold"
+                    android:textColor="@color/text1"/>
+
+            </FrameLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp">
+
+            <ImageView
+                android:id="@+id/time_service_image"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_outline_access_time_24"
+                android:layout_alignParentEnd="true"
+                android:contentDescription="@string/app_name" />
+
+            <TextView
+                android:id="@+id/timeMyService"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/time_service"
+                android:textSize="11sp"
+                android:layoutDirection="rtl"
+                android:layout_marginEnd="5dp"
+                android:fontFamily="@font/vazir"
+                android:textColor="@android:color/darker_gray"
+                android:layout_toStartOf="@id/time_service_image"
+                tools:ignore="SmallSp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="2dp">
+
+            <TextView
+                android:id="@+id/titleMyService"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title_services"
+                android:textSize="11sp"
+                android:fontFamily="@font/vazir_bold"
+                android:textColor="@color/text6"
+                tools:ignore="SmallSp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="2dp"
+            android:layout_gravity="center"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_baseline_chat_bubble_outline_24"
+                android:contentDescription="@string/app_name"
+                android:layout_toEndOf="@id/commentMyService"/>
+
+            <TextView
+                android:id="@+id/commentMyService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/number_test"
+                android:textSize="11sp"
+                android:layoutDirection="rtl"
+                android:layout_marginEnd="3dp"
+                android:layout_marginStart="3dp"
+                android:fontFamily="@font/vazir"
+                android:textColor="@android:color/darker_gray"
+                tools:ignore="SmallSp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

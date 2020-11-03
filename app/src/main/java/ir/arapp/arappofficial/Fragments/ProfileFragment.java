@@ -277,8 +277,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener
                 startActivity(profileActivity);
                 break;
             case R.id.myService:
-                StyleableToast.makeText(Objects.requireNonNull(getActivity()).getApplicationContext(), "سرویس های من"
-                        , Toast.LENGTH_SHORT, R.style.toastTheme).show();
+                profileActivity.putExtra("name", "myService");
+                startActivity(profileActivity);
                 break;
             case R.id.booking:
                 StyleableToast.makeText(Objects.requireNonNull(getActivity()).getApplicationContext(), "رزرو سرویس"
