@@ -117,6 +117,10 @@
     <string name="comment_submit">نظر خود را ثبت کنید</string>
     <string name="comment_consent">عملکرد این سرویس را چگونه ارزیابی می کنید؟</string>
     <string name="confirm_comment">نظر شما بعد از تایید مدیریت، ثبت خواهد شد</string>
+    <string name="delete_service">آیا از حذف این سرویس اطمینان دارید؟</string>
+    <string name="delete_service_notify">در صورت تایید، امکان بازیابی وجود ندارد</string>
+    <string name="delete">حذف</string>
+    <string name="cancel_action">انصراف</string>
 
     <!-- Recycler View -->
     <string name="number_test">0</string>

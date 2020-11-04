@@ -3,12 +3,16 @@ package ir.arapp.arappofficial.Adapter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RatingBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,10 +20,13 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.github.ybq.android.spinkit.SpinKitView;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.muddzdev.styleabletoast.StyleableToast;
 
 import java.util.ArrayList;
 
+import br.com.simplepass.loadingbutton.customViews.CircularProgressButton;
 import ir.arapp.arappofficial.Activities.DetailActivity;
 import ir.arapp.arappofficial.Activities.ServiceActivity;
 import ir.arapp.arappofficial.Data.HomeServicesData;
@@ -86,7 +93,28 @@ public class MyServiceAdapter extends RecyclerView.Adapter<MyServiceAdapter.MySe
         });
         holder.deleteService.setOnClickListener(view ->
         {
-            StyleableToast.makeText(context, "حذف سرویس", Toast.LENGTH_LONG, R.style.toastTheme).show();
+            int TIME_LOADING = 2200;
+            BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(context, R.style.bottomSheetDialogTheme);
+            @SuppressLint("InflateParams") View bottomSheetView = LayoutInflater.from(context).inflate(R.layout.bottom_sheet_delete_service_layout, null);
+            //View Hooks
+            RelativeLayout relativeLayout = bottomSheetView.findViewById(R.id.myServiceDeleteActionRelativeLayout);
+            LinearLayout delete = bottomSheetView.findViewById(R.id.deleteServiceAction);
+            LinearLayout cancel = bottomSheetView.findViewById(R.id.cancelServiceAction);
+            SpinKitView spinKitView = bottomSheetView.findViewById(R.id.loadingDeleteBottomSheet);
+
+            delete.setOnClickListener(view1 ->
+            {
+                relativeLayout.setVisibility(View.GONE);
+                spinKitView.setVisibility(View.VISIBLE);
+                new Handler().postDelayed(bottomSheetDialog::dismiss,TIME_LOADING);
+            });
+            cancel.setOnClickListener(view1 ->
+            {
+                bottomSheetDialog.dismiss();
+            });
+
+            bottomSheetDialog.setContentView(bottomSheetView);
+            bottomSheetDialog.show();
         });
 
         holder.cardView.setOnClickListener(view ->
