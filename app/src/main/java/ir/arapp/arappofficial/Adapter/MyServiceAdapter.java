@@ -10,10 +10,13 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.muddzdev.styleabletoast.StyleableToast;
 
 import java.util.ArrayList;
 
@@ -77,6 +80,15 @@ public class MyServiceAdapter extends RecyclerView.Adapter<MyServiceAdapter.MySe
 
         holder.progressBar.setVisibility(View.GONE);
 
+        holder.editService.setOnClickListener(view ->
+        {
+            StyleableToast.makeText(context, "ویرایش سرویس", Toast.LENGTH_LONG, R.style.toastTheme).show();
+        });
+        holder.deleteService.setOnClickListener(view ->
+        {
+            StyleableToast.makeText(context, "حذف سرویس", Toast.LENGTH_LONG, R.style.toastTheme).show();
+        });
+
         holder.cardView.setOnClickListener(view ->
         {
             Intent intent = new Intent(context, DetailActivity.class);
@@ -115,6 +127,8 @@ public class MyServiceAdapter extends RecyclerView.Adapter<MyServiceAdapter.MySe
     {
         CardView cardView;
         ImageView serviceImage;
+        ImageView editService;
+        ImageView deleteService;
         TextView mTitle;
         TextView mTime;
         TextView mComment;
@@ -126,6 +140,8 @@ public class MyServiceAdapter extends RecyclerView.Adapter<MyServiceAdapter.MySe
             super(itemView);
             cardView = itemView.findViewById(R.id.cardViewMyService);
             serviceImage = itemView.findViewById(R.id.myServiceImage);
+            editService = itemView.findViewById(R.id.editService);
+            deleteService = itemView.findViewById(R.id.deleteService);
             mTitle = itemView.findViewById(R.id.titleMyService);
             mTime = itemView.findViewById(R.id.timeMyService);
             mComment = itemView.findViewById(R.id.commentMyService);

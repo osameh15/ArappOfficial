@@ -128,7 +128,7 @@ public class MyServiceFragment extends Fragment
         recyclerView.setVisibility(View.VISIBLE);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2, GridLayoutManager.VERTICAL, false));
-        //recyclerView.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+        recyclerView.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
         getItem();
         if (myServiceItems.size() == 0)
         {
