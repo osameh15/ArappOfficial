@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.UserProfileFragment"
     android:background="@color/colorAccent"
@@ -34,7 +33,7 @@
                     android:layout_height="match_parent">
 
                     <com.makeramen.roundedimageview.RoundedImageView
-                        android:id="@+id/nav_profilePicture"
+                        android:id="@+id/addServicePicture"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="fitXY"
@@ -254,7 +253,6 @@
                         <com.airbnb.lottie.LottieAnimationView
                             android:layout_width="32dp"
                             android:layout_height="32dp"
-                            android:layout_marginStart="10dp"
                             app:lottie_loop="true"
                             app:lottie_autoPlay="true"
                             app:lottie_fileName="category.json"/>
@@ -325,7 +323,6 @@
                         <com.airbnb.lottie.LottieAnimationView
                             android:layout_width="36dp"
                             android:layout_height="36dp"
-                            android:layout_marginStart="10dp"
                             app:lottie_fileName="time.json"
                             app:lottie_autoPlay="true"
                             app:lottie_loop="true"/>
@@ -372,7 +369,6 @@
                         <com.airbnb.lottie.LottieAnimationView
                             android:layout_width="36dp"
                             android:layout_height="36dp"
-                            android:layout_marginStart="10dp"
                             app:lottie_fileName="time.json"
                             app:lottie_autoPlay="true"
                             app:lottie_loop="true"/>

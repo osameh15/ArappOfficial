@@ -1,5 +1,6 @@
 package ir.arapp.arappofficial.Fragments;
 
+import android.annotation.SuppressLint;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.format.DateFormat;
@@ -146,6 +147,7 @@ public class AddServiceFragment extends Fragment implements View.OnClickListener
                 .show(Objects.requireNonNull(getFragmentManager()), tagBottomSheetTimeRangePicker);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view)
     {

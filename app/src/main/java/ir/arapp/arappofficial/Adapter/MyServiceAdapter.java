@@ -101,14 +101,14 @@ public class MyServiceAdapter extends RecyclerView.Adapter<MyServiceAdapter.MySe
             BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(context, R.style.bottomSheetDialogTheme);
             @SuppressLint("InflateParams") View bottomSheetView = LayoutInflater.from(context).inflate(R.layout.bottom_sheet_delete_service_layout, null);
             //View Hooks
-            RelativeLayout relativeLayout = bottomSheetView.findViewById(R.id.myServiceDeleteActionRelativeLayout);
+            LinearLayout actionBar = bottomSheetView.findViewById(R.id.myServiceDeleteActionRelativeLayout);
             LinearLayout delete = bottomSheetView.findViewById(R.id.deleteServiceAction);
             LinearLayout cancel = bottomSheetView.findViewById(R.id.cancelServiceAction);
             SpinKitView spinKitView = bottomSheetView.findViewById(R.id.loadingDeleteBottomSheet);
 
             delete.setOnClickListener(view1 ->
             {
-                relativeLayout.setVisibility(View.GONE);
+                actionBar.setVisibility(View.GONE);
                 spinKitView.setVisibility(View.VISIBLE);
                 new Handler().postDelayed(bottomSheetDialog::dismiss,TIME_LOADING);
             });

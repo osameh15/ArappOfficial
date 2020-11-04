@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.UserProfileFragment"
     android:background="@color/colorAccent"
@@ -34,7 +33,7 @@
                     android:layout_height="match_parent">
 
                     <com.makeramen.roundedimageview.RoundedImageView
-                        android:id="@+id/nav_profilePicture"
+                        android:id="@+id/editServicePicture"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="fitXY"
@@ -145,7 +144,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textAddService"
+                        android:id="@+id/textEditService"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
@@ -187,7 +186,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@id/textAddService"
+                        android:layout_below="@id/textEditService"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:hint="@string/address"
                         android:layoutDirection="rtl"
@@ -219,7 +218,7 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
-                        android:id="@+id/buttonSubmitMap"
+                        android:id="@+id/buttonSubmitMapEdit"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:layout_marginTop="5dp"
@@ -241,12 +240,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:layout_below="@id/buttonSubmitMap">
+                        android:layout_below="@id/buttonSubmitMapEdit">
 
                         <com.airbnb.lottie.LottieAnimationView
                             android:layout_width="32dp"
                             android:layout_height="32dp"
-                            android:layout_marginStart="10dp"
                             app:lottie_loop="true"
                             app:lottie_autoPlay="true"
                             app:lottie_fileName="category.json"/>
@@ -304,7 +302,6 @@
                         <com.airbnb.lottie.LottieAnimationView
                             android:layout_width="36dp"
                             android:layout_height="36dp"
-                            android:layout_marginStart="10dp"
                             app:lottie_fileName="time.json"
                             app:lottie_autoPlay="true"
                             app:lottie_loop="true"/>
@@ -323,13 +320,37 @@
 
                     </LinearLayout>
 
+                    <TextView
+                        android:id="@+id/openTimeEditService"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_below="@id/activityLinearLayout"
+                        android:text="@string/open_service_time"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/vazir"
+                        android:textColor="@color/open_service"/>
+
+                    <TextView
+                        android:id="@+id/closeTimeEditService"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_below="@id/openTimeEditService"
+                        android:text="@string/close_service_time"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/vazir"
+                        android:textColor="@color/close_service"/>
+
                     <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
-                        android:id="@+id/buttonSubmitTimeActivity"
+                        android:id="@+id/buttonSubmitEditTimeActivity"
                         android:layout_width="320dp"
                         android:layout_height="60dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="10dp"
-                        android:layout_below="@id/activityLinearLayout"
+                        android:layout_below="@id/closeTimeEditService"
                         android:layout_centerHorizontal="true"
                         android:background="@drawable/button_shape_dark"
                         android:fontFamily="@font/vazir_bold"
@@ -346,12 +367,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:layout_below="@id/buttonSubmitTimeActivity">
+                        android:layout_below="@id/buttonSubmitEditTimeActivity">
 
                         <com.airbnb.lottie.LottieAnimationView
                             android:layout_width="36dp"
                             android:layout_height="36dp"
-                            android:layout_marginStart="10dp"
                             app:lottie_fileName="time.json"
                             app:lottie_autoPlay="true"
                             app:lottie_loop="true"/>
@@ -381,7 +401,7 @@
                         android:layout_centerHorizontal="true">
 
                         <androidx.appcompat.widget.AppCompatSpinner
-                            android:id="@+id/buildDateSpinner"
+                            android:id="@+id/buildDateEditSpinner"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
                             android:background="@android:color/transparent"
@@ -406,7 +426,7 @@
         </RelativeLayout>
 
         <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
-            android:id="@+id/buttonSubmitAddService"
+            android:id="@+id/buttonSubmitEditService"
             android:layout_width="320dp"
             android:layout_height="60dp"
             android:layout_marginTop="15dp"

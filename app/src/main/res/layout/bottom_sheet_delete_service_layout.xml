@@ -51,22 +51,29 @@
         android:layout_marginBottom="2dp"
         android:fontFamily="@font/vazir_medium"/>
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/myServiceDeleteActionRelativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp">
+        android:weightSum="2"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:layoutDirection="rtl">
 
         <LinearLayout
             android:id="@+id/deleteServiceAction"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/spinner_bg"
+            android:padding="3dp"
             android:orientation="horizontal"
             android:layoutDirection="rtl"
             android:clickable="true"
             android:focusable="true"
-            android:layout_alignParentEnd="true"
+            android:gravity="center"
             tools:ignore="RelativeOverlap,UseCompoundDrawables">
 
             <ImageView
@@ -82,7 +89,7 @@
                 android:textColor="@color/compound5"
                 android:text="@string/delete"
                 android:textSize="16sp"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="6dp"
                 android:textAlignment="center"
                 android:fontFamily="@font/vazir_medium"/>
 
@@ -90,13 +97,16 @@
 
         <LinearLayout
             android:id="@+id/cancelServiceAction"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="3dp"
+            android:background="@drawable/spinner_bg"
             android:orientation="horizontal"
             android:layoutDirection="rtl"
             android:clickable="true"
             android:focusable="true"
-            android:layout_alignParentStart="true"
+            android:gravity="center"
             tools:ignore="RelativeOverlap,UseCompoundDrawables">
 
             <TextView
@@ -105,7 +115,7 @@
                 android:textColor="@color/text6"
                 android:text="@string/cancel_action"
                 android:textSize="16sp"
-                android:layout_marginEnd="12dp"
+                android:layout_marginEnd="6dp"
                 android:textAlignment="center"
                 android:fontFamily="@font/vazir_medium"/>
 
@@ -118,14 +128,14 @@
 
         </LinearLayout>
 
-    </RelativeLayout>
+    </LinearLayout>
 
     <com.github.ybq.android.spinkit.SpinKitView
         android:id="@+id/loadingDeleteBottomSheet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:layout_marginBottom="3dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
         app:SpinKit_Style="DoubleBounce"
         app:SpinKit_Color="@color/colorPrimary"
         style="@style/loadingStyle"

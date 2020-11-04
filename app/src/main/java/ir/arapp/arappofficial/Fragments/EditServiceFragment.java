@@ -1,5 +1,6 @@
 package ir.arapp.arappofficial.Fragments;
 
+import android.annotation.SuppressLint;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.format.DateFormat;
@@ -52,8 +53,8 @@ public class EditServiceFragment extends Fragment implements View.OnClickListene
 
         //Hooks
         categorySpinner = view.findViewById(R.id.categoryEditSpinner);
-        timeActivity = view.findViewById(R.id.buttonSubmitTimeActivity);
-        buildDateSpinner = view.findViewById(R.id.buildDateSpinner);
+        timeActivity = view.findViewById(R.id.buttonSubmitEditTimeActivity);
+        buildDateSpinner = view.findViewById(R.id.buildDateEditSpinner);
 
         //Spinner List defining
         categoryList = new ArrayList<>();
@@ -152,15 +153,16 @@ public class EditServiceFragment extends Fragment implements View.OnClickListene
                 .show(Objects.requireNonNull(getFragmentManager()), tagBottomSheetTimeRangePicker);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view)
     {
         switch (view.getId())
         {
-            case R.id.buttonSubmitTimeActivity:
+            case R.id.buttonSubmitEditTimeActivity:
                 timePicker();
                 break;
-            case R.id.buttonSubmitAddService:
+            case R.id.buttonSubmitEditService:
                 break;
         }
     }

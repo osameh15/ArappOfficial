@@ -106,6 +106,8 @@
     <string name="set_map">ثبت موقعیت مکانی</string>
     <string name="set_map_again">ثبت مجدد موقعیت مکانی</string>
     <string name="notify">* توجه شود که بعداً نمی توانید این قسمت را ویرایش کنید</string>
+    <string name="open_service_time">ساعت بازشدن سرویس 8:00</string>
+    <string name="close_service_time">ساعت بسته شدن سرویس 23:23</string>
 
     <!-- Pop Up Text View -->
     <string name="contact_us_text">جهت ارتباط با آراپ میتوانید از طریق شماره و یا ایمیل زیر تماس حاصل فرمایید \nهمچنین جهت ارسال مشکلات احتمالی با ایمیل آراپ در ارتباط باشید</string>
