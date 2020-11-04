@@ -46,6 +46,8 @@
     <string name="search">جستجو در آراپ</string>
     <string name="likes">محبوب ترین ها</string>
     <string name="new_services">جدیدترین ها</string>
+    <string name="coin">امتیازات شما: 0</string>
+    <string name="coin_header">0</string>
 
     <!-- Main menu -->
     <string name="favorites">علاقه مندی ها</string>

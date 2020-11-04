@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="180dp"
+    android:orientation="horizontal"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/profile_header_bg"
     android:layoutDirection="rtl"
-    android:padding="10dp">
+    android:padding="10dp"
+    android:gravity="center_vertical">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/nav_cardViewProfile"
@@ -14,9 +17,7 @@
         android:layout_height="100dp"
         app:cardCornerRadius="15dp"
         android:layout_margin="16dp"
-        app:cardElevation="5dp"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true">
+        app:cardElevation="5dp">
 
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/nav_profilePicture"
@@ -33,26 +34,58 @@
 
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/nav_profileName"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="58dp"
-        android:text=""
-        android:textSize="16sp"
-        android:fontFamily="@font/vazir_bold"
-        android:textColor="@color/text1"
-        android:layout_toEndOf="@id/nav_cardViewProfile"/>
+        android:orientation="vertical"
+        android:gravity="center_vertical">
 
-    <TextView
-        android:id="@+id/nav_city"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="14sp"
-        android:fontFamily="@font/vazir"
-        android:textColor="@color/text1"
-        android:layout_toEndOf="@id/nav_cardViewProfile"
-        android:layout_below="@id/nav_profileName"/>
+        <TextView
+            android:id="@+id/nav_profileName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="16sp"
+            android:fontFamily="@font/vazir_bold"
+            android:textColor="@color/text1"/>
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/nav_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text=""
+            android:textSize="14sp"
+            android:fontFamily="@font/vazir"
+            android:textColor="@color/text1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:id="@+id/deleteService"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:src="@drawable/arapp_coin"
+                android:contentDescription="@string/app_name"/>
+
+            <TextView
+                android:id="@+id/nav_coin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="@string/coin_header"
+                android:textSize="14sp"
+                android:fontFamily="@font/vazir"
+                android:textColor="@color/text1"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
