@@ -25,9 +25,11 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.muddzdev.styleabletoast.StyleableToast;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import br.com.simplepass.loadingbutton.customViews.CircularProgressButton;
 import ir.arapp.arappofficial.Activities.DetailActivity;
+import ir.arapp.arappofficial.Activities.ProfileActivity;
 import ir.arapp.arappofficial.Activities.ServiceActivity;
 import ir.arapp.arappofficial.Data.HomeServicesData;
 import ir.arapp.arappofficial.R;
@@ -89,7 +91,9 @@ public class MyServiceAdapter extends RecyclerView.Adapter<MyServiceAdapter.MySe
 
         holder.editService.setOnClickListener(view ->
         {
-            StyleableToast.makeText(context, "ویرایش سرویس", Toast.LENGTH_LONG, R.style.toastTheme).show();
+            Intent profileActivity = new Intent(context, ProfileActivity.class);
+            profileActivity.putExtra("name", "editService");
+            context.startActivity(profileActivity);
         });
         holder.deleteService.setOnClickListener(view ->
         {

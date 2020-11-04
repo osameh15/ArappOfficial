@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragments.UserProfileFragment"
+    android:background="@color/colorAccent"
+    android:layoutDirection="rtl">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/nav_cardViewProfile"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:cardElevation="4dp"
+                android:layout_centerHorizontal="true"
+                app:cardPreventCornerOverlap="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/nav_profilePicture"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:layout_margin="15dp"
+                        app:riv_corner_radius="15dp"
+                        app:riv_border_width="1dp"
+                        app:riv_border_color="@color/colorAccentDark"
+                        app:riv_mutate_background="false"
+                        app:riv_tile_mode="clamp"
+                        app:riv_oval="false"
+                        android:src="@drawable/choose_gallery"/>
+
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="4dp"
+                android:layout_marginTop="12dp"
+                android:layout_centerHorizontal="true"
+                app:cardPreventCornerOverlap="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/titleAddService"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_centerHorizontal="true"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:hint="@string/title_service"
+                        android:layoutDirection="rtl"
+                        android:layout_gravity="center_horizontal"
+                        app:boxStrokeColor="@color/shade6"
+                        app:boxCornerRadiusBottomEnd="15dp"
+                        app:boxCornerRadiusBottomStart="15dp"
+                        app:boxCornerRadiusTopEnd="15dp"
+                        app:boxCornerRadiusTopStart="15dp"
+                        app:errorTextAppearance="@style/error_appearance"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="30"
+                        app:counterOverflowTextAppearance="@style/error_appearance"
+                        app:counterTextAppearance="@style/counter_appearance">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="text"
+                            android:textColor="@color/black"
+                            android:imeOptions="actionNext"
+                            android:ems="10"
+                            android:maxLength="31"
+                            android:textSize="14sp"
+                            android:textAlignment="textStart"
+                            android:fontFamily="@font/vazir">
+                        </com.google.android.material.textfield.TextInputEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/subtitleAddService"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/titleAddService"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:hint="@string/subtitle_service"
+                    android:layoutDirection="rtl"
+                    android:layout_gravity="center_horizontal"
+                    app:boxStrokeColor="@color/shade6"
+                    app:boxCornerRadiusBottomEnd="15dp"
+                    app:boxCornerRadiusBottomStart="15dp"
+                    app:boxCornerRadiusTopEnd="15dp"
+                    app:boxCornerRadiusTopStart="15dp"
+                    app:errorTextAppearance="@style/error_appearance"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="40"
+                    app:counterOverflowTextAppearance="@style/error_appearance"
+                    app:counterTextAppearance="@style/counter_appearance">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="text"
+                        android:textColor="@color/black"
+                        android:imeOptions="actionNext"
+                        android:ems="10"
+                        android:maxLength="41"
+                        android:textSize="14sp"
+                        android:textAlignment="textStart"
+                        android:fontFamily="@font/vazir">
+                    </com.google.android.material.textfield.TextInputEditText>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textAddService"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/subtitleAddService"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:hint="@string/text_service"
+                        android:layoutDirection="rtl"
+                        android:layout_gravity="center_horizontal"
+                        app:boxStrokeColor="@color/shade6"
+                        app:boxCornerRadiusBottomEnd="15dp"
+                        app:boxCornerRadiusBottomStart="15dp"
+                        app:boxCornerRadiusTopEnd="15dp"
+                        app:boxCornerRadiusTopStart="15dp"
+                        app:errorTextAppearance="@style/error_appearance"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="400"
+                        app:counterOverflowTextAppearance="@style/error_appearance"
+                        app:counterTextAppearance="@style/counter_appearance">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="textMultiLine|textCapSentences"
+                            android:textColor="@color/black"
+                            android:imeOptions="actionNext"
+                            android:ems="10"
+                            android:minLines="1"
+                            android:maxLines="10"
+                            android:maxLength="401"
+                            android:textSize="14sp"
+                            android:textAlignment="textStart"
+                            android:fontFamily="@font/vazir">
+                        </com.google.android.material.textfield.TextInputEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textAddressService"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/textAddService"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:hint="@string/address"
+                        android:layoutDirection="rtl"
+                        android:layout_gravity="center_horizontal"
+                        app:boxStrokeColor="@color/shade6"
+                        app:boxCornerRadiusBottomEnd="15dp"
+                        app:boxCornerRadiusBottomStart="15dp"
+                        app:boxCornerRadiusTopEnd="15dp"
+                        app:boxCornerRadiusTopStart="15dp"
+                        app:errorTextAppearance="@style/error_appearance"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="200"
+                        app:counterOverflowTextAppearance="@style/error_appearance"
+                        app:counterTextAppearance="@style/counter_appearance">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="textMultiLine|textCapSentences"
+                            android:textColor="@color/black"
+                            android:imeOptions="actionDone"
+                            android:ems="10"
+                            android:minLines="1"
+                            android:maxLines="3"
+                            android:maxLength="201"
+                            android:textSize="14sp"
+                            android:textAlignment="textStart"
+                            android:fontFamily="@font/vazir">
+                        </com.google.android.material.textfield.TextInputEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+                        android:id="@+id/buttonSubmitMap"
+                        android:layout_width="320dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_below="@id/textAddressService"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/button_shape_dark"
+                        android:fontFamily="@font/vazir_bold"
+                        android:text="@string/set_map"
+                        android:textColor="@color/text1"
+                        android:textSize="18sp"
+                        android:elevation="2dp"
+                        app:spinning_bar_padding="10dp"
+                        app:spinning_bar_color="@color/text1"
+                        app:spinning_bar_width="3dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/educationLinearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_below="@id/buttonSubmitMap">
+
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_marginStart="10dp"
+                            app:lottie_loop="true"
+                            app:lottie_autoPlay="true"
+                            app:lottie_fileName="category.json"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:text="@string/categories"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/vazir"
+                            android:textColor="@color/text6"
+                            tools:ignore="RtlSymmetry" />
+
+                    </LinearLayout>
+                    
+                    <RelativeLayout
+                        android:id="@+id/educationRelativeLayout"
+                        android:layout_width="325dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/spinner_bg"
+                        android:layout_below="@id/educationLinearLayout"
+                        android:layout_centerHorizontal="true">
+
+                        <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/categorySpinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@android:color/transparent"
+                            android:spinnerMode="dropdown"
+                            android:gravity="center"/>
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_arrow_drop_down_black_24dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:contentDescription="@string/app_name" />
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/activityLinearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_below="@id/educationRelativeLayout">
+
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="10dp"
+                            app:lottie_fileName="time.json"
+                            app:lottie_autoPlay="true"
+                            app:lottie_loop="true"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:text="@string/time_activity"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/vazir"
+                            android:textColor="@color/text6"
+                            tools:ignore="RtlSymmetry" />
+
+                    </LinearLayout>
+
+                    <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+                        android:id="@+id/buttonSubmitTimeActivity"
+                        android:layout_width="320dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_below="@id/activityLinearLayout"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/button_shape_dark"
+                        android:fontFamily="@font/vazir_bold"
+                        android:text="@string/set_timer"
+                        android:textColor="@color/text1"
+                        android:textSize="18sp"
+                        android:elevation="2dp"
+                        app:spinning_bar_padding="10dp"
+                        app:spinning_bar_color="@color/text1"
+                        app:spinning_bar_width="3dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/buildDateLinearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_below="@id/buttonSubmitTimeActivity">
+
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="10dp"
+                            app:lottie_fileName="time.json"
+                            app:lottie_autoPlay="true"
+                            app:lottie_loop="true"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:text="@string/date_build"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/vazir"
+                            android:textColor="@color/text6"
+                            tools:ignore="RtlSymmetry" />
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/buildDateRelativeLayout"
+                        android:layout_width="325dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/spinner_bg"
+                        android:layout_below="@id/buildDateLinearLayout"
+                        android:layout_centerHorizontal="true">
+
+                        <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/buildDateSpinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@android:color/transparent"
+                            android:spinnerMode="dropdown"
+                            android:gravity="center"/>
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_arrow_drop_down_black_24dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:contentDescription="@string/app_name" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+        <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+            android:id="@+id/buttonSubmitAddService"
+            android:layout_width="320dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_shape"
+            android:fontFamily="@font/vazir_bold"
+            android:layout_gravity="center"
+            android:text="@string/add_service"
+            android:textColor="@color/text1"
+            android:textSize="18sp"
+            android:elevation="2dp"
+            app:spinning_bar_padding="10dp"
+            app:spinning_bar_color="@color/text1"
+            app:spinning_bar_width="3dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

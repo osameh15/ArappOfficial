@@ -73,6 +73,7 @@
     <!-- Profile Fragment -->
     <string name="edit_profile">ویرایش اطلاعات کاربری</string>
     <string name="my_service">سرویس های من</string>
+    <string name="edit_service">ویرایش سرویس</string>
     <string name="user_comment">مشاهده نظرات کاربران</string>
     <string name="service_rating">مشاهده امتیازات داده شده</string>
     <string name="search_history">پاک کردن تاریخچه جستجو</string>
