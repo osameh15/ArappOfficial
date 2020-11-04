@@ -16,6 +16,7 @@ import com.muddzdev.styleabletoast.StyleableToast;
 import java.util.Objects;
 
 import ir.arapp.arappofficial.Fragments.AddServiceFragment;
+import ir.arapp.arappofficial.Fragments.EditServiceFragment;
 import ir.arapp.arappofficial.Fragments.HomeFragment;
 import ir.arapp.arappofficial.Fragments.MyServiceFragment;
 import ir.arapp.arappofficial.Fragments.UserProfileFragment;
@@ -91,7 +92,7 @@ public class ProfileActivity extends AppCompatActivity
         else if (Objects.requireNonNull(fragment).equals("editService"))
         {
             toolbarTitle.setText(getResources().getString(R.string.edit_service));
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_profile_container, new AddServiceFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_profile_container, new EditServiceFragment()).commit();
         }
     }
 }

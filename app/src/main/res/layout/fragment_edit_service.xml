@@ -69,11 +69,13 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:paddingEnd="15dp"
+                    android:paddingStart="15dp">
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/titleAddService"
-                        android:layout_width="330dp"
+                        android:id="@+id/titleEditService"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
@@ -102,17 +104,18 @@
                             android:maxLength="31"
                             android:textSize="14sp"
                             android:textAlignment="textStart"
-                            android:fontFamily="@font/vazir">
+                            android:fontFamily="@font/vazir"
+                            android:enabled="false">
                         </com.google.android.material.textfield.TextInputEditText>
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/subtitleAddService"
-                    android:layout_width="330dp"
+                    android:id="@+id/subtitleEditService"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:layout_centerHorizontal="true"
-                    android:layout_below="@id/titleAddService"
+                    android:layout_below="@id/titleEditService"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:hint="@string/subtitle_service"
                     android:layoutDirection="rtl"
@@ -143,11 +146,11 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textAddService"
-                        android:layout_width="330dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@id/subtitleAddService"
+                        android:layout_below="@id/subtitleEditService"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:hint="@string/text_service"
                         android:layoutDirection="rtl"
@@ -179,8 +182,8 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textAddressService"
-                        android:layout_width="330dp"
+                        android:id="@+id/textAddressEditService"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
                         android:layout_centerHorizontal="true"
@@ -217,15 +220,15 @@
 
                     <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
                         android:id="@+id/buttonSubmitMap"
-                        android:layout_width="320dp"
+                        android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="10dp"
-                        android:layout_below="@id/textAddressService"
+                        android:layout_below="@id/textAddressEditService"
                         android:layout_centerHorizontal="true"
                         android:background="@drawable/button_shape_dark"
                         android:fontFamily="@font/vazir_bold"
-                        android:text="@string/set_map"
+                        android:text="@string/set_map_again"
                         android:textColor="@color/text1"
                         android:textSize="18sp"
                         android:elevation="2dp"
@@ -264,16 +267,16 @@
                     
                     <RelativeLayout
                         android:id="@+id/educationRelativeLayout"
-                        android:layout_width="325dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
                         android:layout_marginBottom="10dp"
-                        android:background="@drawable/spinner_bg"
+                        android:background="@drawable/spinner_disable_bg"
                         android:layout_below="@id/educationLinearLayout"
                         android:layout_centerHorizontal="true">
 
                         <androidx.appcompat.widget.AppCompatSpinner
-                            android:id="@+id/categorySpinner"
+                            android:id="@+id/categoryEditSpinner"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
                             android:background="@android:color/transparent"
@@ -330,7 +333,7 @@
                         android:layout_centerHorizontal="true"
                         android:background="@drawable/button_shape_dark"
                         android:fontFamily="@font/vazir_bold"
-                        android:text="@string/set_timer"
+                        android:text="@string/set_timer_again"
                         android:textColor="@color/text1"
                         android:textSize="18sp"
                         android:elevation="2dp"
@@ -363,17 +366,17 @@
                             android:textSize="16sp"
                             android:fontFamily="@font/vazir"
                             android:textColor="@color/text6"
-                            tools:ignore="RtlSymmetry" />
+                            tools:ignore="RtlSymmetry"/>
 
                     </LinearLayout>
 
                     <RelativeLayout
                         android:id="@+id/buildDateRelativeLayout"
-                        android:layout_width="325dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
                         android:layout_marginBottom="10dp"
-                        android:background="@drawable/spinner_bg"
+                        android:background="@drawable/spinner_disable_bg"
                         android:layout_below="@id/buildDateLinearLayout"
                         android:layout_centerHorizontal="true">
 
@@ -408,10 +411,12 @@
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
             android:background="@drawable/button_shape"
             android:fontFamily="@font/vazir_bold"
             android:layout_gravity="center"
-            android:text="@string/add_service"
+            android:text="@string/edit_service"
             android:textColor="@color/text1"
             android:textSize="18sp"
             android:elevation="2dp"

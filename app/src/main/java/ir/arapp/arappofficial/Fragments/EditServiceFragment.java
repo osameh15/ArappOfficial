@@ -51,7 +51,7 @@ public class EditServiceFragment extends Fragment implements View.OnClickListene
         View view = inflater.inflate(R.layout.fragment_edit_service, container, false);
 
         //Hooks
-        categorySpinner = view.findViewById(R.id.categorySpinner);
+        categorySpinner = view.findViewById(R.id.categoryEditSpinner);
         timeActivity = view.findViewById(R.id.buttonSubmitTimeActivity);
         buildDateSpinner = view.findViewById(R.id.buildDateSpinner);
 
@@ -98,6 +98,8 @@ public class EditServiceFragment extends Fragment implements View.OnClickListene
                 };
         arrayAdapter.setDropDownViewResource(R.layout.custom_spinner_layout_dropdown);
 
+        categorySpinner.setEnabled(false);
+        categorySpinner.setClickable(false);
         categorySpinner.setAdapter(arrayAdapter);
 
         ArrayAdapter<String> arrayAdapter1 = new
@@ -126,7 +128,12 @@ public class EditServiceFragment extends Fragment implements View.OnClickListene
                 };
         arrayAdapter.setDropDownViewResource(R.layout.custom_spinner_layout_dropdown);
 
+        buildDateSpinner.setEnabled(false);
+        buildDateSpinner.setClickable(false);
         buildDateSpinner.setAdapter(arrayAdapter1);
+
+        categorySpinner.setSelection(1);
+        buildDateSpinner.setSelection(1);
     }
 
     //Time Picker

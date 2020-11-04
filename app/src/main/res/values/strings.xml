@@ -94,7 +94,7 @@
     <string name="province">استان</string>
     <string name="city">شهرستان</string>
 
-    <!-- Add Service Fragment -->
+    <!-- Add Service and Edit Service Fragment -->
     <string name="title_service">عنوان سرویس</string>
     <string name="subtitle_service">مختصری از سرویس</string>
     <string name="text_service">توضیحات کامل از سرویس</string>
@@ -102,7 +102,10 @@
     <string name="time_activity">زمان شروع و پایان فعالیت</string>
     <string name="date_build">سال افتتاح سرویس</string>
     <string name="set_timer">تنظیم زمان</string>
+    <string name="set_timer_again">تنظیم مجدد</string>
     <string name="set_map">ثبت موقعیت مکانی</string>
+    <string name="set_map_again">ثبت مجدد موقعیت مکانی</string>
+    <string name="notify">* توجه شود که بعداً نمی توانید این قسمت را ویرایش کنید</string>
 
     <!-- Pop Up Text View -->
     <string name="contact_us_text">جهت ارتباط با آراپ میتوانید از طریق شماره و یا ایمیل زیر تماس حاصل فرمایید \nهمچنین جهت ارسال مشکلات احتمالی با ایمیل آراپ در ارتباط باشید</string>

@@ -49,7 +49,6 @@
 
                 </RelativeLayout>
 
-
             </androidx.cardview.widget.CardView>
 
         </RelativeLayout>
@@ -69,14 +68,15 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:paddingEnd="15dp"
+                    android:paddingStart="15dp">
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/titleAddService"
-                        android:layout_width="330dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
                         android:layout_centerHorizontal="true"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:hint="@string/title_service"
@@ -106,13 +106,25 @@
                         </com.google.android.material.textfield.TextInputEditText>
                     </com.google.android.material.textfield.TextInputLayout>
 
+                    <TextView
+                        android:id="@+id/TextView10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/titleAddService"
+                        android:layout_marginTop="-2dp"
+                        android:text="@string/notify"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/vazir"
+                        android:textAlignment="center"
+                        android:textColor="@color/compound5"/>
+
                     <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/subtitleAddService"
-                    android:layout_width="330dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="6dp"
                     android:layout_centerHorizontal="true"
-                    android:layout_below="@id/titleAddService"
+                    android:layout_below="@id/TextView10"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:hint="@string/subtitle_service"
                     android:layoutDirection="rtl"
@@ -143,9 +155,9 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textAddService"
-                        android:layout_width="330dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="6dp"
                         android:layout_centerHorizontal="true"
                         android:layout_below="@id/subtitleAddService"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -180,9 +192,8 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textAddressService"
-                        android:layout_width="330dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
                         android:layout_centerHorizontal="true"
                         android:layout_below="@id/textAddService"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -217,7 +228,7 @@
 
                     <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
                         android:id="@+id/buttonSubmitMap"
-                        android:layout_width="320dp"
+                        android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="10dp"
@@ -264,7 +275,7 @@
                     
                     <RelativeLayout
                         android:id="@+id/educationRelativeLayout"
-                        android:layout_width="325dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
                         android:layout_marginBottom="10dp"
@@ -291,12 +302,25 @@
 
                     </RelativeLayout>
 
+                    <TextView
+                        android:id="@+id/TextView11"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/educationRelativeLayout"
+                        android:layout_marginTop="-5dp"
+                        android:text="@string/notify"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/vazir"
+                        android:textAlignment="center"
+                        android:textColor="@color/compound5"/>
+
                     <LinearLayout
                         android:id="@+id/activityLinearLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
                         android:orientation="horizontal"
-                        android:layout_below="@id/educationRelativeLayout">
+                        android:layout_below="@id/TextView11">
 
                         <com.airbnb.lottie.LottieAnimationView
                             android:layout_width="36dp"
@@ -322,7 +346,7 @@
 
                     <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
                         android:id="@+id/buttonSubmitTimeActivity"
-                        android:layout_width="320dp"
+                        android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="10dp"
@@ -369,7 +393,7 @@
 
                     <RelativeLayout
                         android:id="@+id/buildDateRelativeLayout"
-                        android:layout_width="325dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
                         android:layout_marginBottom="10dp"
@@ -396,6 +420,19 @@
 
                     </RelativeLayout>
 
+                    <TextView
+                        android:id="@+id/TextView12"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/buildDateRelativeLayout"
+                        android:layout_marginTop="-5dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/notify"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/vazir"
+                        android:textAlignment="center"
+                        android:textColor="@color/compound5"/>
+
                 </RelativeLayout>
 
             </androidx.cardview.widget.CardView>
@@ -404,10 +441,12 @@
 
         <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
             android:id="@+id/buttonSubmitAddService"
-            android:layout_width="320dp"
+            android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
             android:background="@drawable/button_shape"
             android:fontFamily="@font/vazir_bold"
             android:layout_gravity="center"
