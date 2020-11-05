@@ -69,8 +69,8 @@
 
             <ImageView
                 android:id="@+id/deleteService"
-                android:layout_width="34dp"
-                android:layout_height="34dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
                 android:src="@drawable/arapp_coin"
                 android:contentDescription="@string/app_name"/>
 
