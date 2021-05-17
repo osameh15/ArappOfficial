@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
@@ -17,6 +18,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,13 +33,17 @@ import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.muddzdev.styleabletoast.StyleableToast;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.Objects;
+
 import ir.arapp.arappofficial.AppService.DrawerLocker;
 import ir.arapp.arappofficial.AppService.RetrofitClient;
 import ir.arapp.arappofficial.AppService.SessionManager;
+import ir.arapp.arappofficial.Data.UserData;
 import ir.arapp.arappofficial.Fragments.CategoryFragment;
 import ir.arapp.arappofficial.Fragments.HomeFragment;
 import ir.arapp.arappofficial.Fragments.NotificationFragment;
@@ -49,8 +55,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, DrawerLocker
-{
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, DrawerLocker {
     //Variable
     private static final String TAG = HomeActivity.class.getSimpleName();
     static final float END_SCALE = 0.7f;
@@ -61,7 +66,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     FrameLayout contentView;
     BottomNavigationView bottomNavigationView;
     Toolbar toolbar;
-    private Dialog dialog;
     private String phone;
     private String versionName;
     //Handler and timer to back pressed
@@ -77,8 +81,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private SessionManager sessionManager;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
@@ -105,13 +108,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         getData();
         setNotifyChecked();
 
-        //Dialog
-        dialog = new Dialog(this);
-
         //Bottom Navigation
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
-        if (savedInstanceState == null)
-        {
+        if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
         }
         bottomNavigationView.setSelectedItemId(R.id.bottom_home);
@@ -126,17 +125,13 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
 
     //check internet connection ...
-    private boolean checkConnection()
-    {
+    private boolean checkConnection() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
-        if (null != networkInfo)
-        {
+        if (null != networkInfo) {
             return true;
-        }
-        else
-        {
+        } else {
             StyleableToast.makeText(getApplicationContext(), "عدم اتصال به اینترنت!", Toast.LENGTH_LONG, R.style.toastTheme).show();
             return false;
         }
@@ -144,58 +139,51 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     //OnDestroy method
     @Override
-    protected void onDestroy()
-    {
+    protected void onDestroy() {
         super.onDestroy();
 
-        if (handler != null)
-        {
+        if (handler != null) {
             handler.removeCallbacks(runnable);
         }
     }
 
     //Search menu function
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-    //        getMenuInflater().inflate(R.menu.toolbar_search_menu, menu);
-    //        MenuItem menuItem = menu.findItem(R.id.action_search);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //        getMenuInflater().inflate(R.menu.toolbar_search_menu, menu);
+        //        MenuItem menuItem = menu.findItem(R.id.action_search);
 
-    //        SearchView searchView = (SearchView) menuItem.getActionView();
-    //
-    //        //search view plate
-    //        View searchPlate = searchView.findViewById(androidx.appcompat.R.id.search_plate);
-    //        searchPlate.setBackgroundResource(R.drawable.search_bg);
-    //
-    //        //search view edit text
-    //        EditText searchEditText = searchView.findViewById(androidx.appcompat.R.id.search_src_text);
-    //        searchEditText.setHint(getResources().getString(R.string.search));
-    //        Typeface type = ResourcesCompat.getFont(getApplicationContext(), R.font.vazir);
-    //        searchEditText.setTypeface(type);
-    //        searchEditText.setHintTextColor(getResources().getColor(R.color.disable));
-    //        searchEditText.setTextColor(getResources().getColor(R.color.colorAccentDark));
-    //        searchEditText.setTextSize(14);
-    //
-    //        //search view close button
-    //        ImageView closeButtonImage = searchView.findViewById(androidx.appcompat.R.id.search_close_btn);
-    //        closeButtonImage.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.colorAccentDark), PorterDuff.Mode.SRC_IN);
-    //
+        //        SearchView searchView = (SearchView) menuItem.getActionView();
+        //
+        //        //search view plate
+        //        View searchPlate = searchView.findViewById(androidx.appcompat.R.id.search_plate);
+        //        searchPlate.setBackgroundResource(R.drawable.search_bg);
+        //
+        //        //search view edit text
+        //        EditText searchEditText = searchView.findViewById(androidx.appcompat.R.id.search_src_text);
+        //        searchEditText.setHint(getResources().getString(R.string.search));
+        //        Typeface type = ResourcesCompat.getFont(getApplicationContext(), R.font.vazir);
+        //        searchEditText.setTypeface(type);
+        //        searchEditText.setHintTextColor(getResources().getColor(R.color.disable));
+        //        searchEditText.setTextColor(getResources().getColor(R.color.colorAccentDark));
+        //        searchEditText.setTextSize(14);
+        //
+        //        //search view close button
+        //        ImageView closeButtonImage = searchView.findViewById(androidx.appcompat.R.id.search_close_btn);
+        //        closeButtonImage.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.colorAccentDark), PorterDuff.Mode.SRC_IN);
+        //
         return super.onCreateOptionsMenu(menu);
     }
 
     //Check recently changed dialog only first time in home screen ...
-    private void checkIsFirstRun()
-    {
+    private void checkIsFirstRun() {
         String storedVersionName;
         storedVersionName = sessionManager.getStoredVersionName();
 
-        if (storedVersionName.equals(""))
-        {
+        if (storedVersionName.equals("")) {
             sessionManager.setStoredVersionName(versionName);
             return;
-        }
-        else if (!storedVersionName.equals(versionName))
-        {
+        } else if (!storedVersionName.equals(versionName)) {
             showRecentlyChangeDialog();
         }
         sessionManager.setStoredVersionName(versionName);
@@ -203,15 +191,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     //Navigation drawer methods
     @Override
-    public void onBackPressed()
-    {
+    public void onBackPressed() {
         //check drawer layout open or close
         if (drawerLayout.isDrawerVisible(GravityCompat.END))
         {
             drawerLayout.closeDrawer(GravityCompat.END);
         }
         else
-        {
+            {
             //if user clicking twice on back button finish activity ...
             if (doubleBackToExitPressed)
             {
@@ -223,35 +210,30 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             handler.postDelayed(runnable, TIME_INTERVAL);
         }
     }
-    private void navigationDrawer()
-    {
+
+    private void navigationDrawer() {
         //Navigation drawer
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
         menuImage.setOnClickListener(v ->
         {
-            if (drawerLayout.isDrawerVisible(GravityCompat.END))
-            {
+            if (drawerLayout.isDrawerVisible(GravityCompat.END)) {
                 drawerLayout.closeDrawer(GravityCompat.END);
-            }
-            else
-            {
+            } else {
                 drawerLayout.openDrawer(GravityCompat.END);
             }
         });
 
         animateNavigateDrawer();
     }
-    private void animateNavigateDrawer()
-    {
+
+    private void animateNavigateDrawer() {
         //Add any color or remove it to use the default one!
         //To make it transparent use Color.Transparent in side setScrimColor();
         //drawerLayout.setScrimColor(Color.TRANSPARENT);
-        drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener()
-        {
+        drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             @Override
-            public void onDrawerSlide(View drawerView, float slideOffset)
-            {
+            public void onDrawerSlide(View drawerView, float slideOffset) {
 
                 // Scale the View based on current slide offset
                 final float diffScaledOffset = slideOffset * (1 - END_SCALE);
@@ -267,11 +249,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             }
         });
     }
+
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem)
-    {
-        switch(menuItem.getItemId())
-        {
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
             case R.id.nav_faves:
                 StyleableToast.makeText(getApplicationContext(), "علاقه مندی ها", Toast.LENGTH_LONG, R.style.toastTheme).show();
                 break;
@@ -299,34 +280,28 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.closeDrawer(GravityCompat.END);
         return true;
     }
+
     @Override
-    public void setDrawerLocked(boolean shouldLock)
-    {
-        if (shouldLock)
-        {
+    public void setDrawerLocked(boolean shouldLock) {
+        if (shouldLock) {
             drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-        }
-        else
-        {
+        } else {
             drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
         }
     }
-    private void notificationCheckBox(int notify)
-    {
+
+    private void notificationCheckBox(int notify) {
         MenuItem menuItem = navigationView.getMenu().findItem(R.id.nav_newsReceive);
         CompoundButton compoundButton = (CompoundButton) menuItem.getActionView();
-        if (notify == 1)
-        {
+        if (notify == 1) {
             compoundButton.setChecked(true);
-        }
-        else
-        {
+        } else {
             compoundButton.setChecked(false);
         }
     }
+
     @SuppressLint("SetTextI18n")
-    private void headerDrawer(String name, String province, String city, int notify, String image)
-    {
+    private void headerDrawer(String name, String province, String city, int notify, String image) {
         View view = navigationView.getHeaderView(0);
         TextView nameText = view.findViewById(R.id.nav_profileName);
         TextView cityText = view.findViewById(R.id.nav_city);
@@ -339,8 +314,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         //Load Image
         loadProfileImage(image, imageView);
     }
-    private void loadProfileImage(String image, ImageView imageView)
-    {
+
+    private void loadProfileImage(String image, ImageView imageView) {
         Glide
                 .with(this)
                 .load(image)
@@ -354,8 +329,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener =
             menuItem ->
             {
-               switch(menuItem.getItemId())
-                {
+                switch (menuItem.getItemId()) {
                     case R.id.bottom_profile:
                         bottomNavigationView.getMenu().getItem(0).setEnabled(true);
                         bottomNavigationView.getMenu().getItem(1).setEnabled(true);
@@ -401,114 +375,73 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             };
 
     //Get Data from server
-    private void getData()
-    {
-        if (checkConnection())
-        {
-            Call<ResponseBody> call = RetrofitClient
+    private void getData() {
+        if (checkConnection()) {
+            Call<UserData> call = RetrofitClient
                     .getInstance()
                     .getApi()
-                    .getUserData(phone);
+                    .getUserData1(phone);
 
-            call.enqueue(new Callback<ResponseBody>()
-            {
+            call.enqueue(new Callback<UserData>() {
                 @Override
-                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response)
-                {
-                    if (response.isSuccessful())
-                    {
-                        try
-                        {
-                            String responseBody = Objects.requireNonNull(response.body()).string();
-                            JSONObject jsonObject = new JSONObject(responseBody);
-                            boolean error = jsonObject.getBoolean("error");
-                            if (!error)
-                            {
-                                String name = jsonObject.getString("name");
-                                String province = jsonObject.getString("province");
-                                String city = jsonObject.getString("city");
-                                int notify = jsonObject.getInt("notification_receiver");
-                                String image = jsonObject.getString("avatar");
-                                headerDrawer(name, province, city, notify, image);
-                            }
-                            else
-                            {
-                                StyleableToast.makeText(getApplicationContext(), "خطا در برقراری ارتباط!", Toast.LENGTH_LONG, R.style.toastTheme).show();
-                            }
-                        }
-                        catch (IOException | JSONException e)
-                        {
-                            e.printStackTrace();
-                        }
+                public void onResponse(Call<UserData> call, Response<UserData> response) {
+                    if (response.isSuccessful()) {
+                        UserData ud = response.body();
+                        headerDrawer(ud.getName(), ud.getProvince(), ud.getCity(), ud.getNotification_receiver(), ud.getAvatar());
                     }
                 }
 
                 @Override
-                public void onFailure(Call<ResponseBody> call, Throwable t)
-                {
+                public void onFailure(Call<UserData> call, Throwable t) {
                     StyleableToast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG, R.style.toastTheme).show();
                 }
             });
         }
     }
+
     //Set notification to 1 (receive) and 0 (don't receive)
-    private void setNotifyChecked()
-    {
+    private void setNotifyChecked() {
         MenuItem menuItem = navigationView.getMenu().findItem(R.id.nav_newsReceive);
         CompoundButton compoundButton = (CompoundButton) menuItem.getActionView();
         compoundButton.setOnClickListener(v ->
         {
-            if (compoundButton.isChecked())
-            {
+            if (compoundButton.isChecked()) {
                 setNotification(1);
-            }
-            else
-            {
+            } else {
                 setNotification(0);
             }
         });
     }
-    private void setNotification(int notification)
-    {
-        if (checkConnection())
-        {
+
+    private void setNotification(int notification) {
+        if (checkConnection()) {
             Call<ResponseBody> call = RetrofitClient
                     .getInstance()
                     .getApi()
                     .setNotificationReceiver(phone, notification);
 
-            call.enqueue(new Callback<ResponseBody>()
-            {
+            call.enqueue(new Callback<ResponseBody>() {
                 @Override
-                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response)
-                {
-                    if (response.isSuccessful())
-                    {
-                        try
-                        {
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    if (response.isSuccessful()) {
+                        try {
                             String responseBody = Objects.requireNonNull(response.body()).string();
                             JSONObject jsonObject = new JSONObject(responseBody);
                             boolean error = jsonObject.getBoolean("error");
                             String message = jsonObject.getString("error_msg");
-                            if (!error)
-                            {
+                            if (!error) {
+                                StyleableToast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG, R.style.toastTheme).show();
+                            } else {
                                 StyleableToast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG, R.style.toastTheme).show();
                             }
-                            else
-                            {
-                                StyleableToast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG, R.style.toastTheme).show();
-                            }
-                        }
-                        catch (IOException | JSONException e)
-                        {
+                        } catch (IOException | JSONException e) {
                             e.printStackTrace();
                         }
                     }
                 }
 
                 @Override
-                public void onFailure(Call<ResponseBody> call, Throwable t)
-                {
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
                     StyleableToast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG, R.style.toastTheme).show();
                 }
             });
@@ -516,8 +449,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
 
     //search view
-    private void searchViewMethod()
-    {
+    private void searchViewMethod() {
         searchView.setOnClickListener(view ->
         {
             Intent searchActivity = new Intent(HomeActivity.this, SearchActivity.class);
@@ -527,8 +459,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     //show pop up dialogs
     //recently change
-    private void showRecentlyChangeDialog()
-    {
+    private void showRecentlyChangeDialog() {
+        Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.custom_popup_recently_change);
         ImageView close = dialog.findViewById(R.id.close_popup_recently);
         TextView textView = dialog.findViewById(R.id.recentlyChangesText);
@@ -538,18 +470,20 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.show();
     }
+
     //about us
-    private void showAboutUsDialog()
-    {
+    private void showAboutUsDialog() {
+        Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.custom_popup_about_us);
         ImageView close = dialog.findViewById(R.id.close_popup_info);
         close.setOnClickListener(v -> dialog.dismiss());
         Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.show();
     }
+
     //Contact us
-    private void showContactUsDialog()
-    {
+    private void showContactUsDialog() {
+        Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.custom_popup_contact_us);
         ImageView close = dialog.findViewById(R.id.close_popup_contact);
         Button callButton = dialog.findViewById(R.id.call);
@@ -559,8 +493,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         {
             Uri number = Uri.parse("tel:+989112834604");
             Intent intent = new Intent(Intent.ACTION_DIAL, number);
-            if (intent.resolveActivity(getPackageManager()) != null)
-            {
+            if (intent.resolveActivity(getPackageManager()) != null) {
                 startActivity(intent);
             }
         });
@@ -568,15 +501,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         {
             Intent emailIntent = new Intent(Intent.ACTION_SEND);
             emailIntent.setType("message/rfc822");
-            emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {"Sajjad.Haghzad@gmail.com"});
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"Sajjad.Haghzad@gmail.com"});
             emailIntent.putExtra(Intent.EXTRA_SUBJECT, "گزارش مشکلات/ارتباط با ما");
             emailIntent.putExtra(Intent.EXTRA_TEXT, "");
-            try
-            {
+            try {
                 startActivity(Intent.createChooser(emailIntent, "ارسال ایمیل از طریق:"));
-            }
-            catch (android.content.ActivityNotFoundException ex)
-            {
+            } catch (android.content.ActivityNotFoundException ex) {
                 StyleableToast.makeText(getApplicationContext(), "هیچ کلاینتی برای ارسال ایمیل پیدا نشد",
                         Toast.LENGTH_SHORT, R.style.toastTheme).show();
             }
@@ -586,16 +516,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
 
     //Share App function
-    private void shareApp()
-    {
+    private void shareApp() {
         String message = "لینک دانلود آراپ از بازار:";
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.putExtra(Intent.EXTRA_TEXT, message);
         intent.setType("text/plain");
 
         Intent chooser = Intent.createChooser(intent, "اشتراک گذاری از طریق:");
-        if (intent.resolveActivity(getPackageManager()) != null)
-        {
+        if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(chooser);
         }
     }

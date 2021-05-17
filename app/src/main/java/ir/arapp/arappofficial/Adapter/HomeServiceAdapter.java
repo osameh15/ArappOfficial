@@ -21,21 +21,30 @@ import ir.arapp.arappofficial.Activities.DetailActivity;
 import ir.arapp.arappofficial.Data.HomeServicesData;
 import ir.arapp.arappofficial.R;
 
-public class HomeServiceAdapter extends RecyclerView.Adapter<HomeServiceAdapter.HomeServiceHolder>
-{
+public class HomeServiceAdapter extends RecyclerView.Adapter<HomeServiceAdapter.HomeServiceHolder> {
     Context context;
     ArrayList<HomeServicesData> servicesData;
 
-    public HomeServiceAdapter(Context context, ArrayList<HomeServicesData> servicesData)
-    {
+    public HomeServiceAdapter(Context context, ArrayList<HomeServicesData> servicesData) {
         this.context = context;
         this.servicesData = servicesData;
     }
 
+
+    @Override
+    public int getItemViewType(int position) {
+        Class<? extends HomeServicesData> aClass = servicesData.get(position).getClass();
+        if (Object.class.equals(aClass)) {
+            return 0;
+        } else if (HomeServicesData.class.equals(aClass)) {
+            return 2;
+        }
+        return 1;
+    }
+
     @NonNull
     @Override
-    public HomeServiceHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
-    {
+    public HomeServiceHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.home_card_services, parent, false);
 
         return new HomeServiceHolder(view);
@@ -43,8 +52,7 @@ public class HomeServiceAdapter extends RecyclerView.Adapter<HomeServiceAdapter.
 
     @SuppressLint("SetTextI18n")
     @Override
-    public void onBindViewHolder(@NonNull HomeServiceHolder holder, int position)
-    {
+    public void onBindViewHolder(@NonNull HomeServiceHolder holder, int position) {
         HomeServicesData homeServicesData = servicesData.get(position);
 
         holder.serviceImage.setImageResource(homeServicesData.getImage());
@@ -53,23 +61,16 @@ public class HomeServiceAdapter extends RecyclerView.Adapter<HomeServiceAdapter.
         holder.mCategory.setText(homeServicesData.getCategory());
         holder.mComment.setText(homeServicesData.getAllComment());
 
-        if (homeServicesData.getRate() == 0)
-        {
+        if (homeServicesData.getRate() == 0) {
             holder.mRate.setText("-");
             holder.frameLayout.setBackgroundResource(R.drawable.rate_zero_shape);
-        }
-        else if (homeServicesData.getRate() < 2)
-        {
+        } else if (homeServicesData.getRate() < 2) {
             holder.mRate.setText(homeServicesData.getRate() + "");
             holder.frameLayout.setBackgroundResource(R.drawable.rate_min_shape);
-        }
-        else if (homeServicesData.getRate() < 4)
-        {
+        } else if (homeServicesData.getRate() < 4) {
             holder.mRate.setText(homeServicesData.getRate() + "");
             holder.frameLayout.setBackgroundResource(R.drawable.rate_normal_shape);
-        }
-        else if (homeServicesData.getRate() <= 5)
-        {
+        } else if (homeServicesData.getRate() <= 5) {
             holder.mRate.setText(homeServicesData.getRate() + "");
             holder.frameLayout.setBackgroundResource(R.drawable.rate_max_shape);
         }
@@ -105,13 +106,11 @@ public class HomeServiceAdapter extends RecyclerView.Adapter<HomeServiceAdapter.
     }
 
     @Override
-    public int getItemCount()
-    {
+    public int getItemCount() {
         return servicesData.size();
     }
 
-    public static class HomeServiceHolder extends RecyclerView.ViewHolder
-    {
+    public static class HomeServiceHolder extends RecyclerView.ViewHolder {
         CardView cardView;
         ImageView serviceImage;
         TextView mTitle;
@@ -121,11 +120,11 @@ public class HomeServiceAdapter extends RecyclerView.Adapter<HomeServiceAdapter.
         TextView mRate;
         FrameLayout frameLayout;
         ProgressBar progressBar;
-        public HomeServiceHolder(@NonNull View itemView)
-        {
+
+        public HomeServiceHolder(@NonNull View itemView) {
             super(itemView);
             cardView = itemView.findViewById(R.id.cardViewService);
-            serviceImage =itemView.findViewById(R.id.serviceImage);
+            serviceImage = itemView.findViewById(R.id.serviceImage);
             mTitle = itemView.findViewById(R.id.titleService);
             mTime = itemView.findViewById(R.id.timeService);
             mCategory = itemView.findViewById(R.id.categoryService);

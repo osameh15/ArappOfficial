@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.UserProfileFragment"
-    android:background="@color/colorAccent"
+    android:background="@color/mainToolbar"
     android:layoutDirection="rtl">
 
     <LinearLayout

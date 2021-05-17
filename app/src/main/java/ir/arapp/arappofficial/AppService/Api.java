@@ -1,5 +1,6 @@
 package ir.arapp.arappofficial.AppService;
 
+import ir.arapp.arappofficial.Data.UserData;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -7,8 +8,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 
-public interface Api
-{
+public interface Api {
     @FormUrlEncoded
     @POST("registerPhoneApp")
     Call<ResponseBody> registerPhoneApp
@@ -66,6 +66,12 @@ public interface Api
                     @Field("password") String password,
                     @Field("confirmPassword") String cnfPassword
             );
+
+    @FormUrlEncoded
+    @POST("getUserDataApp")
+    Call<UserData> getUserData1(
+            @Field("phone") String phone
+    );
 
     @FormUrlEncoded
     @POST("getUserDataApp")
